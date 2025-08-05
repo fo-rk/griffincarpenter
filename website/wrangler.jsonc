@@ -1,0 +1,22 @@
+{
+    "name": "griffincarpenter-website",
+    "main": ".svelte-kit/cloudflare/_worker.js",
+    "routes": [
+      {
+        "pattern": "griffincarpenter.org",
+        "custom_domain": true
+      },
+      {
+        "pattern": "www.griffincarpenter.org",
+        "custom_domain": true
+      }
+    ],
+    "build": {
+      "command": "npm run build"
+    },
+   	"assets": {
+		  "binding": "ASSETS",
+		  "directory": ".svelte-kit/cloudflare"
+    },
+    "compatibility_date": "2025-05-23"
+}
