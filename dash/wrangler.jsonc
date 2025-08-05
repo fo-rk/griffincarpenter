@@ -1,0 +1,19 @@
+{
+    "name": "griffincarpenter-dash",
+    "compatibility_date": "2025-07-29",
+    "routes": [
+        {
+            "pattern": "dash.griffincarpenter.org",
+            "custom_domain": true
+        }
+    ],
+    "observability": {
+        "enabled": true
+    },
+    "assets": {
+        "directory": "./dist"
+    },
+    "build": {
+        "command": "bunx sanity build"
+    }
+}
