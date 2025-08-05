@@ -5,7 +5,8 @@ export default {
     fields: [
         {
             name: 'type',
-            type: 'string'
+            type: 'string',
+            hidden: true
         },
         {
             name: 'title',
@@ -39,6 +40,16 @@ export default {
             name: 'authors',
             type: 'array',
             of: [{ type: 'reference', to: { type: 'person' } }]
+        },
+        {
+            name: 'categories',
+            type: 'array',
+            of: [{ type: 'reference', to: { type: 'category' }}]
+        },
+        {
+          name: 'tags',
+          type: 'array',
+          of: [{ type: 'string' }]
         }
     ]
 }

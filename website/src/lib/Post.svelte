@@ -18,6 +18,7 @@
 
     <div class={`not-prose`}>
         {#each value.authors as author}
+
             <div class={`flex gap-4 items-center`}>
                 <img src={author.image.url} class={`w-12 h-12`} />
                 <div>{author.name}</div>
@@ -25,13 +26,6 @@
         {/each}
     </div>
 
-    <div>
-        {#each value.authors as author}
-            <div>
-                {author.name}
-            </div>
-        {/each}
-    </div>
     {#if !summary}
         <PortableText value={value.body} components={{
             marks: {

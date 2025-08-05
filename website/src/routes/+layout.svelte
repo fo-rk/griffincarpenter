@@ -29,7 +29,7 @@
     <div class={`grow`}>
         {@render children?.()}
     </div>
-    <div class={`bg-blue-light p-5 md:p-20 md:py-10 flex gap-10`}>
+    <div class={`bg-blue-light p-5 md:p-20 md:py-10 flex flex-col md:flex-row gap-10`}>
         <div class={`lg:w-1/2 prose prose-custom prose-lg md:prose-xl lg:prose-2xl`}>
             <a href={`/`} class={`not-prose`}>
                 <img
