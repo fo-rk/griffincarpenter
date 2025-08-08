@@ -1,16 +1,14 @@
 <script>
-    import LinkMark from '$lib/LinkMark.svelte';
-    import {PortableText} from '@portabletext/svelte';
-    let { value: blocks } = $props();
+  import TextBlock from "./TextBlock.svelte";
+  let { value: blocks } = $props();
 </script>
 
-{#each blocks as block}
-    {#if block._type === 'textBlock'}
-        <PortableText value={block.text} components={{
-            marks: {
-                internalLink: LinkMark,
-                externalLink: LinkMark
-            },
-        }} />
-    {/if}
-{/each}
+<div class={``}>
+    <div class={`flex flex-col divide-y divide-blue-light divide-y-8`}>
+        {#each blocks as block}
+            {#if block._type === 'textBlock'}
+              <TextBlock value={block.text} />
+            {/if}
+        {/each}
+    </div>
+</div>

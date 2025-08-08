@@ -8,6 +8,26 @@ const textBlock = {
             name: 'text',
             type: 'array',
             of: [
+              {
+                  name: 'image',
+                  type: 'image',
+                  fields: [
+                      {
+                          name: 'credit',
+                          type: 'string'
+                      }
+                  ]
+              },
+              {
+                  name: 'featuredLink',
+                  title: 'Featured link',
+                  type: 'reference',
+                  to: [
+                      { type: 'page' },
+                      { type: 'post' },
+                      { type: 'publication' }
+                  ]
+              },
                 {
                     type: 'block',
                     styles: [

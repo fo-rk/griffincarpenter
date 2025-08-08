@@ -1,3 +1,5 @@
+import { LaunchIcon, LinkIcon } from '@sanity/icons';
+
 export default {
     type: 'document',
     name: 'settings',
@@ -11,7 +13,52 @@ export default {
             name: 'description',
             title: 'Short description',
             type: 'array',
-            of: [{ type: 'block' }]
+            of: [
+                {
+                    type: 'block',
+                    styles: [
+                        {title: 'Normal', value: 'normal'}
+                    ],
+                    marks: {
+                        annotations: [
+                            {
+                                name: 'internalLink',
+                                type: 'object',
+                                title: 'Internal link',
+                                icon: LinkIcon,
+                                fields: [
+                                    {
+                                        name: 'reference',
+                                        type: 'reference',
+                                        title: 'Reference',
+                                        to: [
+                                            { type: 'post' },
+                                            { type: 'page' },
+                                            { type: 'publication' },
+                                            { type: 'category' }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                name: 'externalLink',
+                                type: 'object',
+                                title: 'External link',
+                                icon: LaunchIcon,
+                                fields: [
+                                    {
+                                        name: 'url',
+                                        type: 'url',
+                                        validation: Rule => Rule.uri({
+                                            scheme: ['http', 'https', 'mailto', 'tel']
+                                        })
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
         },
         {
             name: 'logo',

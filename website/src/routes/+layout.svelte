@@ -1,11 +1,13 @@
 <script>
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import { PortableText } from '@portabletext/svelte';
+	import TextBlock from "$lib/TextBlock.svelte";
 	import { onNavigate } from '$app/navigation';
 	let { children, data } = $props();
 	let { settings } = $derived(data);
 	let menuOpen = $state(false);
+
+	console.log(settings.description)
 
 	onNavigate(() => {
 	    menuOpen = false;
@@ -38,7 +40,7 @@
                     class={`h-24`}
                 />
             </a>
-            <PortableText value={settings.description} />
+            <TextBlock value={settings.description} />
         </div>
         <div class={`flex flex-col gap-3 prose prose-custom prose-lg md:prose-xl lg:prose-2xl`}>
             {#each settings.menu as item}

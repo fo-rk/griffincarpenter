@@ -48,11 +48,12 @@
             {/each}
         </div>
 
+        <hr class={`my-10 mt-16 border-blue-light border-6`} />
 
-        <h4 class={`mt-20 mb-6`}>
+        <h4 class={`mb-6`}>
             Latest posts
         </h4>
-        <div class={`flex flex-col gap-16`}>
+        <div class={`flex flex-col gap-16 mb-10`}>
             {#each data.posts as post}
                 <a
                     href={`/${slugPrefixFromType(post)}${post.slug.current}`}
@@ -82,7 +83,7 @@
             <div class={`flex flex-wrap w-full gap-4`}>
                 {#each data.categories as category}
                     <a href={`/categories/${category.slug.current}`} class={`
-                        md:pr-5 text-2xl flex items-center gap-4 not-prose underline
+                        md:pr-0 text-2xl flex items-center gap-4 not-prose underline
                     `}>
                         {category.title}
                     </a>

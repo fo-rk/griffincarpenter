@@ -1,4 +1,4 @@
-import { client } from "$lib";
+import { client, textBlockUnpacking } from "$lib";
 
 export const load = async () => {
     const settings = await client.fetch(`
@@ -18,6 +18,9 @@ export const load = async () => {
                     slug,
                     title
                 }
+            },
+            description[]{
+              ${textBlockUnpacking}
             }
         }[0]
     `);

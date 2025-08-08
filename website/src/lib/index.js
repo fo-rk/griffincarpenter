@@ -26,3 +26,52 @@ export const slugPrefixFromType = (doc) => {
             return 'categories/'
     }
 }
+
+export const typeFromDoc = (doc) => {
+    switch (doc._type) {
+        case 'publication':
+            switch (doc.type) {
+                case 'briefing':
+                    return 'Briefing';
+                case 'report':
+                    return 'Report';
+            }
+        case 'post':
+            return 'Post';
+        case 'page':
+            return 'Page';
+        case 'category':
+            return 'Category'
+    }
+}
+
+export const textBlockUnpacking = `
+  ...,
+  _type == 'featuredLink' => @-> {
+      'doc': {
+          title,
+          slug,
+          type,
+          _type,
+          publishedAt,
+          image{
+              'url':asset->url
+          }
+      }
+  },
+  _type == 'image' => {
+      'url':asset->url,
+      credit
+  },
+  markDefs[]{
+      ...,
+      _type == 'internalLink' => {
+          reference->{
+              _id,
+              slug,
+              _type,
+              type
+          }
+      }
+  }
+`

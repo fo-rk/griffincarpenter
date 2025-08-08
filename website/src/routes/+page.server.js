@@ -21,8 +21,9 @@ export const load = async ({ }) => {
             ...,
             image{
                 'url': asset->url
-            }
-        }
+            },
+            'numRefs': count(*[references(^._id)])
+        } | order(numRefs desc)
     }`);
 
     return {
