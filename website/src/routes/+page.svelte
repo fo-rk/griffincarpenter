@@ -2,9 +2,8 @@
     import { format } from 'date-fns';
     import { slugPrefixFromType } from '$lib';
     import Post from '$lib/Post.svelte';
-    import { PortableText } from '@portabletext/svelte';
+    import TextBlock from "$lib/TextBlock.svelte";
     let { data } = $props();
-    console.log('data', data)
 </script>
 
 <div class={`
@@ -77,7 +76,7 @@
 
     <div class={`order-first md:order-last md:w-1/3 m-10 lg:m-20 p-10 bg-blue-light`}>
         <div class={`prose prose-custom prose-lg md:prose-xl lg:prose-2xl`}>
-            <PortableText value={data.settings.description} />
+            <TextBlock value={data.settings.description} />
 
             <h4>Topics</h4>
             <div class={`flex flex-wrap w-full gap-4`}>
