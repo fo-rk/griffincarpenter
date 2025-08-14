@@ -1,8 +1,14 @@
 <script>
     import { format } from 'date-fns';
     import { slugPrefixFromType, typeFromDoc } from "$lib";
+    import { beforeNavigate } from '$app/navigation';
     let { data } = $props();
     let { page } = $derived(data);
+
+    beforeNavigate(() => {
+        document.body.style.height = '';
+		document.body.style.overflow = '';
+    });
 
     let selectedQuestion = $state(null);
 

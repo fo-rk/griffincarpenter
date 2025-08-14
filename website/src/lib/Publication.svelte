@@ -48,6 +48,16 @@
         <PortableText value={publication.body} />
     {/if}
 
+    {#if publication.categories.find(cat => cat.title === 'Fisheries')}
+        <a href={`/categories/fisheries`} class={`my-8 relative  bg-yellow-light hover:bg-yellow-mid no-underline flex`}>
+            <div class={`p-5 w-1/2 md:w-2/3`}>
+                Part of my fisheries work
+                <h1>Policy to plate</h1>
+            </div>
+            <img src={`/img/fisheries/11.png`} class={`absolute bottom-0 right-0 md:relative w-2/3 md:w-1/3 block not-prose object-contain md:object-cover object-bottom`} />
+        </a>
+    {/if}
+
     <div class={`not-prose mt-10`}>
         <h2>Categories</h2>
         {#each publication.categories as category}
