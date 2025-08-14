@@ -33,12 +33,6 @@
     --font-serif: 'Crimson Pro Variable', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-/*@utility prose-custom {
-    /*--tw-prose-headings: var(--color-green-dark);
-    --tw-prose-body: var(--color-green-dark);
-    --tw-prose-links: var(--color-green-dark);
-}*/
-
 .prose a {
     @apply decoration-2 underline-offset-4;
 }
