@@ -4,6 +4,15 @@ export default {
     title: 'Category',
     fields: [
         {
+            name: 'type',
+            type: 'string',
+            options: {
+                list: ['topic', 'method'],
+                layout: 'radio',
+                direction: 'horizontal'
+            }
+        },
+        {
             name: 'title',
             type: 'string'
         },
@@ -23,5 +32,11 @@ export default {
             name: 'image',
             type: 'image'
         }
-    ]
+    ],
+    preview: {
+        select: {
+            title: 'title',
+            subtitle: 'type'
+        }
+    }
 }

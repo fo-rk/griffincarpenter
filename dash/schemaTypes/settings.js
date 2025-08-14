@@ -61,11 +61,21 @@ export default {
             ]
         },
         {
+            name: 'url',
+            type: 'url',
+            readOnly: true
+        },
+        {
             name: 'logo',
             type: 'image'
         },
         {
             name: 'icon',
+            type: 'image'
+        },
+        {
+            name: 'socialImage',
+            title: 'Social share image',
             type: 'image'
         },
         {
@@ -94,6 +104,92 @@ export default {
                     }
                 }
             }]
+        },
+        {
+            name: 'fisheries',
+            type: 'object',
+            fields: [
+                {
+                    name: 'title',
+                    type: 'string'
+                },
+                {
+                    name: 'sections',
+                    type: 'array',
+                    of: [
+                        {
+                            name: 'section',
+                            type: 'object',
+                            fields: [
+                                {
+                                    name: 'title',
+                                    type: 'string'
+                                },
+                                {
+                                    name: 'subtitle',
+                                    type: 'string'
+                                },
+                                {
+                                    name: 'stage',
+                                    type: 'string',
+                                    options: {
+                                        list: ['advice', 'process', 'product'],
+                                        layout: 'radio',
+                                        direction: 'horizontal'
+                                    }
+                                },
+                                {
+                                    name: 'questions',
+                                    type: 'array',
+                                    of: [{
+                                        type: 'object',
+                                        name: 'question',
+                                        fields: [
+                                            {
+                                                name: 'title',
+                                                type: 'string'
+                                            },
+                                            {
+                                                name: 'topics',
+                                                type: 'array',
+                                                of: [{
+                                                    name: 'topic',
+                                                    type: 'object',
+                                                    fields: [
+                                                        {
+                                                            name: 'title',
+                                                            type: 'string'
+                                                        },
+                                                        {
+                                                            name: 'documents',
+                                                            type: 'array',
+                                                            of: [
+                                                                {
+                                                                    type: 'reference',
+                                                                    to: [
+                                                                        { type: 'post'},
+                                                                        { type: 'publication'}
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }]
+                                            }
+                                        ]
+                                    }]
+                                }
+                            ],
+                            preview: {
+                                select: {
+                                    title: 'title',
+                                    subtitle: 'stage'
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
