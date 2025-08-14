@@ -25,6 +25,10 @@
     --color-green-light: #b2c891;
     --color-blue-mid: #729b9a;
     --color-blue-light: #c0e4de;
+    --color-green-light: #b2c891;
+    --color-yellow-mid: #f2dc78;
+    --color-yellow-light: #fcedb7;
+    --color-red-light: #dbc1c5;
     --font-sans: 'Lexend Variable', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: 'Crimson Pro Variable', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
@@ -37,6 +41,10 @@
 
 .prose a {
     @apply decoration-2 underline-offset-4;
+}
+
+.prose-custom h1 {
+    @apply lg:text-5xl;
 }
 
 html {

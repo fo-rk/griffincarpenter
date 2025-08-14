@@ -17,7 +17,7 @@ export const load = async ({ }) => {
             },
         } | order(publishedAt desc) [0..5],
         'pages': *[_type == 'page'],
-        'categories': *[_type == 'category']{
+        'categories': *[_type == 'category' && type == 'topic']{
             ...,
             image{
                 'url': asset->url

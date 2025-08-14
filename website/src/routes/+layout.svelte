@@ -3,11 +3,10 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import TextBlock from "$lib/TextBlock.svelte";
 	import { onNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
 	let { children, data } = $props();
 	let { settings } = $derived(data);
 	let menuOpen = $state(false);
-
-	console.log(settings.description)
 
 	onNavigate(() => {
 	    menuOpen = false;
@@ -15,7 +14,48 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+    <link rel="icon" href={favicon} />
+
+    {#if $page.data.title}
+        <title>{$page.data.title} – {settings.title}</title>
+        <meta name="title" content={`${$page.data.title} – ${settings.title}`} />
+        <meta property="og:title" content={`${$page.data.title} – ${settings.title}`} />
+        <meta property="twitter:title" content={`${$page.data.title} – ${settings.title}`} />
+    {:else}
+        <title>{settings.title}</title>
+        <meta name="title" content={settings.title} />
+        <meta property="og:title" content={settings.title} />
+        <meta property="twitter:title" content={settings.title} />
+    {/if}
+
+    {#if $page.data.description}
+        <meta name="description" content={$page.data.description} />
+        <meta property="og:description" content={$page.data.description} />
+        <meta property="twitter:description" content={$page.data.description} />
+    {:else}
+        <meta name="description" content={settings.plainDescription} />
+        <meta property="og:description" content={settings.plainDescription} />
+        <meta property="twitter:description" content={settings.plainDescription} />
+    {/if}
+
+    {#if $page.data.slug}
+        <meta property="og:url" content={`${settings.url}/${$page.data.slug}`} />
+        <meta property="twitter:url" content={`${settings.url}/${$page.data.slug}`} />
+    {:else}
+        <meta property="og:url" content={settings.url} />
+        <meta property="twitter:url" content={settings.url} />
+    {/if}
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+
+    {#if $page.data.image}
+        <meta property="og:image" content={$page.data.image} />
+        <meta property="twitter:image" content={$page.data.image} />
+    {:else}
+        <meta property="og:image" content={settings.socialImage.url + '?w=1200'} />
+        <meta property="twitter:image" content={settings.socialImage.url + '?w=1200'} />
+    {/if}
 </svelte:head>
 
 <div class={`flex flex-col min-h-screen`}>

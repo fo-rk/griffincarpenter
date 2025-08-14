@@ -6,6 +6,7 @@ export const load = async ({ params }) => {
     `);
 
     return {
-        posts
+        posts,
+        title: 'Posts'
     }
 }

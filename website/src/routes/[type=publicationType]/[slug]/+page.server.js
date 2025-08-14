@@ -1,5 +1,6 @@
 import { client } from "$lib";
 import { error } from "@sveltejs/kit";
+import { slugPrefixFromType } from '$lib';
 
 export const load = async ({ params }) => {
     const { type, slug } = params;
@@ -31,6 +32,9 @@ export const load = async ({ params }) => {
     }
 
     return {
-        publication
+        publication,
+        title: publication.title,
+        ...(publication.image ? { image: publication.image.url + '?w=1200' } : {}),
+        slug: `${slugPrefixFromType(publication)}${publication.slug.current}`
     }
 }

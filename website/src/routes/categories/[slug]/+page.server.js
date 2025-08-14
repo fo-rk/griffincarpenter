@@ -10,6 +10,7 @@ export const load = async ({ params }) => {
 
     return {
         docs,
-        category
+        category,
+        title: `${category.title}`
     }
 }

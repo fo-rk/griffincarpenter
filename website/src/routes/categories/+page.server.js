@@ -9,6 +9,7 @@ export const load = async () => {
     `);
 
     return {
-        categories
+        categories,
+        title: 'Categories'
     }
 }

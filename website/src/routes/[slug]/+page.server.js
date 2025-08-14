@@ -20,6 +20,7 @@ export const load = async ({ params }) => {
     if (!page) return error(400, "Couldn't find that page");
 
     return {
-        page
+        page,
+        title: page.title
     }
 }

@@ -18,6 +18,9 @@ export const load = async ({ params }) => {
     `, { slug: params.slug });
 
     return {
-        post
+        post,
+        title: post.title,
+        ...(post.image ? { image: post.image.url + '?w=1200' } : {}),
+        slug: `posts/${post.slug.current}`
     }
 }

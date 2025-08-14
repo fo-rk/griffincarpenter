@@ -13,6 +13,7 @@ export const load = async ({ params }) => {
     });
 
     return {
-        publications
+        publications,
+        title: types[params.type] + 's'
     }
 }

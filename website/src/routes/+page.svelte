@@ -23,7 +23,7 @@
                     class={`not-prose flex gap-5 md:gap-10 hover:text-blue-mid`}
                 >
                     {#if publication.image}
-                        <img src={publication.image.url} class={`
+                        <img src={publication.image.url + '?w=750'} class={`
                             w-1/3 object-cover
                         `} />
                     {/if}
@@ -59,7 +59,7 @@
                     class={`not-prose flex gap-5 md:gap-10 hover:text-blue-mid`}
                 >
                     {#if post.image}
-                        <img src={post.image.url} class={`w-1/3`} />
+                        <img src={post.image.url + '?w=750'} class={`w-1/3`} />
                     {/if}
                     <div class={`flex flex-col gap-3`}>
                         <h2 class={`text-2xl md:text-3xl font-bold text-balance`}>

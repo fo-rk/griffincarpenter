@@ -10,6 +10,9 @@ export const load = async () => {
             icon{
                 'url': asset->url
             },
+            socialImage{
+                'url': asset->url
+            },
             menu[]{
                 ...,
                 page->{
@@ -21,7 +24,8 @@ export const load = async () => {
             },
             description[]{
               ${textBlockUnpacking}
-            }
+            },
+            'plainDescription': pt::text(description)
         }[0]
     `);
 

@@ -5,7 +5,7 @@
 </script>
 
 {#if publication.image}
-    <img src={publication.image.url} class={`w-full h-96 object-cover`} />
+    <img src={publication.image.url + '?w=1800'} class={`w-full h-96 object-cover`} alt="Main image" />
 {/if}
 
 <div class={`pad prose prose-custom prose-lg md:prose-xl lg:prose-2xl`}>
@@ -13,12 +13,21 @@
         {format(publication.publishedAt, 'dd.MM.yy')}
     </h4>
 
-    <h1>{publication.title}</h1>
+    <h1>
+      {publication.title}
+      <span class={`font-normal`}>{publication.title}</span>
+    </h1>
 
-    <div class={`not-prose`}>
+    <div class={`not-prose flex flex-wrap gap-8`}>
         {#each publication.authors as author}
             <div class={`flex gap-4 items-center`}>
-                <img src={author.image.url} class={`w-12 h-12`} />
+                {#if author.image}
+                  <img src={author.image.url} class={`w-12 h-12`} alt="Author image" />
+                {:else}
+                  <svg class={`w-12 h-12`} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.344 23.493v-3h1a3 3 0 0 0 3 -3v-3h2.814a0.5 0.5 0 0 0 0.473 -0.652C20.756 8.038 19.4 1.806 13.21 0.674A9.989 9.989 0 0 0 1.386 9.329 9.727 9.727 0 0 0 5.344 18.1v5.389" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
+                  </svg>
+                {/if}
                 <div>{author.name}</div>
             </div>
         {/each}
